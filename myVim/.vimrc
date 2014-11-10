@@ -25,6 +25,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
+Plugin 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,11 +36,8 @@ filetype plugin indent on    " required
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" Istall from command line - vim +PluginInstall +qall 
 " see :h vundle for more details or wiki for FAQ
-" }}}
-
-" === Features === {{{
-syntax on                       		        " Turn on syntax highlighting
 " }}}
 
 " === Theme and colors === {{{
@@ -49,6 +47,7 @@ set background=dark				                " Changing background color
 " }}}
 
 " === General Config === {{{
+syntax on                       		        " Turn on syntax highlighting
 set autoread                    		        " Reload files changed outside vim
 set hidden                      		        " Easier buffer switching
 set title                       		        " Set automatic title terminal window
