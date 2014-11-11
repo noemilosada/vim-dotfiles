@@ -121,7 +121,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['html'] }
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-let g:syntaxtic_css_checkers = ['csslint', 'phpcs', 'prettycss']
+let g:syntastic_css_checkers = ['csslint', 'phpcs', 'prettycss', 'recess']
 let g:syntastic_json_checkers = ['jsonlint']
 
 let g:syntastic_error_symbol = '✗'
