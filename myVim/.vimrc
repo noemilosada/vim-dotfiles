@@ -2,7 +2,7 @@
 " vim:fdm=marker
 " }}}
 
-" === Plugins === {{{
+" === Vundle && Plugins === {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -21,7 +21,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'skammer/vim-css-color'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'tomasr/molokai'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
@@ -140,4 +140,9 @@ let g:mustache_abbreviations = 1
 
 " === PLUGIN: vim-airline === {{{
 set laststatus=2
+" }}}
+
+" === PLUGIN: Molokai theme === {{{
+let g:molokai_original = 1              " Original monokai bkg color
+let g:rehash256 = 1                     " Option under development. Attempts to bring the 256 color version as close as possible
 " }}}
