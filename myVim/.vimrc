@@ -120,9 +120,11 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': [],
             \ 'passive_filetypes': ['html'] }
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phplint', 'phpmd']
 let g:syntastic_css_checkers = ['csslint', 'phpcs', 'prettycss', 'recess']
 let g:syntastic_json_checkers = ['jsonlint']
+let g:syntastic_sass_checkers = ['sass', 'sassc']
+let g:syntastic_scss_checkers = ['sass', 'sassc', 'scss_lint']
 
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
