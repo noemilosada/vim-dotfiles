@@ -20,4 +20,8 @@ Please, feel free to download, modify and suggest.
 
     `$ vim +PluginInstall +qall`
 
+## Notes
+If you want to use the plugin [YouCompleteMe], you'll need to follow their instruccions from their site in order to make it work.
+
 [Vundle]:http://github.com/gmarik/vundle
+[YouCompleteMe]:http://github.com/Valloric/YouCompleteMe
