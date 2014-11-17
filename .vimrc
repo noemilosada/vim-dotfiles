@@ -48,7 +48,7 @@ colorscheme molokai               		        " Set theme color scheme
 set background=dark				                " Changing background color
 " }}}
 
-" === General Config === {{{
+" === General Configuration === {{{
 syntax on                       		        " Turn on syntax highlighting
 set autoread                    		        " Reload files changed outside vim
 set hidden                      		        " Easier buffer switching
@@ -62,14 +62,13 @@ set paste                                       " Paste text from other window w
 set nowrap                                      " No wrap lines automatically
 set linebreak                                   " Wrap lines at convenient points
 set incsearch                                   " Do highlight as you type you search phrase
-" }}}
-
-" === Usability === {{{
 set ignorecase                  		        " Case insensitive searches
 set smartcase                                   " Case sensitive searches for capital letters
 set backspace=indent,eol,start  		        " Repair wired terminal/vim settings
 set autoindent					                " Set auto indentation
 set smartindent					                " Set smart indentation
+set copyindent                                  " Copy the previous indentation
+set shiftround                                  " Multiple shiftwidth when indenting with '<' and '>'
 set nostartofline                               " Stop certain movements from always going to the first character of a line
 set ruler                      			        " Show line and column information
 set laststatus=2                                " Display status line
@@ -78,9 +77,6 @@ set ttymouse=xterm2             		        " Set this to the name of your termina
 set mouse=a                     		        " Enable mouse use in all modes
 set number                      		        " Show line numbers by default
 set cursorline                                  " Highlight current line 
-" }}}
-
-" === Formatting === {{{
 set listchars=tab:┊\				            " Indent line
 let g:indentLine_color_gui = '#A4E57E'		    " Indent line color
 let g:indentLine_char = '·'			            " Indent line character
@@ -89,6 +85,15 @@ set showmatch                  			        " Show matching brackets
 set formatoptions=tcrqn				            " How automatic formatting is to be done
 set whichwrap=b,s,<,>,[,]			            " Allow specific keys that moves the cursor
 set tabstop=4 shiftwidth=4	expandtab		    " Set tabs to 4 spaces
+
+" Remove window scrollbars  in gvim and macvim
+set guioptions-=T
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=m
+set guioptions-=M
 " }}}
 
 " === History === {{{
@@ -108,6 +113,10 @@ set wildignore=*.swp,*.bak,*.swo,*.pyc,*.class,*DS_Store*
 set foldmethod=marker   			            " Fold based on indent
 set foldnestmax=10      			            " Deepest fold is 10 levels
 " }}}
+
+" === Remaps === {{{
+cnoremap w!! w !sudo tee % >/dev/null           " Save no permission files once opened
+"}}}
 
 " === PLUGIN: Remap F8 to open Taglist === {{{
 au VimEnter * nnoremap <silent> <F8> :TlistToggle<cr>
@@ -146,6 +155,10 @@ let g:mustache_operators = 1
 
 " === PLUGIN: vim-airline === {{{
 set laststatus=2
+" }}}
+
+" === PLUGIN: vim-css-color === {{{
+let g:cssColorVimDoNotMessMyUpdatetime = 1
 " }}}
 
 " === PLUGIN: Molokai theme === {{{
