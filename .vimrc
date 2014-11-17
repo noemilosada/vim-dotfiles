@@ -26,6 +26,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
 Plugin 'Yggdroot/indentLine'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,8 +124,9 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phplint', 'phpmd']
 let g:syntastic_css_checkers = ['csslint', 'phpcs', 'prettycss', 'recess']
 let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_sass_checkers = ['sass', 'sassc']
 let g:syntastic_scss_checkers = ['sass', 'sassc', 'scss_lint']
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_quiet_messages = { "type": "style" }
 
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
@@ -137,7 +139,8 @@ let g:syntastic_auto_loc_list=1
 " }}}
 
 " === PLUGIN: Mustache === {{{
-let g:mustache_abbreviations = 1
+let g:mustache_abbreviations = 0
+let g:mustache_operators = 1
 " }}}
 
 " === PLUGIN: vim-airline === {{{
@@ -147,4 +150,8 @@ set laststatus=2
 " === PLUGIN: Molokai theme === {{{
 let g:molokai_original = 1              " Original monokai bkg color
 let g:rehash256 = 1                     " Option under development. Attempts to bring the 256 color version as close as possible
+" }}}
+
+" === PLUGIN: YouCompleteMe === {{{
+let g:ycm_always_populate_location_list = 1
 " }}}
