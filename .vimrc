@@ -98,8 +98,8 @@ set guioptions-=M
 " }}}
 
 " === History === {{{
-set history=1000                		        " Remember more commands and search history
-set undolevels=1000             		        " Use many much levels of undo
+set history=1000                                " Remember more commands and search history
+set undolevels=1000                             " Use many much levels of undo
 " }}}
 
 " === Completition and swap files === {{{
@@ -111,8 +111,8 @@ set wildignore=*.swp,*.bak,*.swo,*.pyc,*.class,*DS_Store*
 " }}}
 
 " === Folding Structure ==== {{{
-set foldmethod=marker   			            " Fold based on indent
-set foldnestmax=10      			            " Deepest fold is 10 levels
+set foldmethod=marker                           " Fold based on indent
+set foldnestmax=10                              " Deepest fold is 10 levels
 " }}}
 
 " === PLUGIN: Remap F8 to open Taglist === {{{
@@ -159,8 +159,8 @@ let g:cssColorVimDoNotMessMyUpdatetime = 1
 " }}}
 
 " === PLUGIN: Molokai theme === {{{
-let g:molokai_original = 1                  " Original monokai bkg color
-let g:rehash256 = 1                         " Option under development. Attempts to bring the 256 color version as close as possible
+let g:molokai_original = 1                      " Original monokai bkg color
+let g:rehash256 = 1                             " Option under development. Attempts to bring the 256 color version as close as possible
 " }}}
 
 " === PLUGIN: YouCompleteMe === {{{
