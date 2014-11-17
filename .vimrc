@@ -27,6 +27,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'jlanzarotta/bufexplorer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
