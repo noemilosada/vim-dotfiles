@@ -43,9 +43,9 @@ filetype plugin indent on    " required
 " }}}
 
 " === Theme and colors === {{{
-set t_Co=256                    		        " Emulate 256 colors
-colorscheme molokai               		        " Set theme color scheme
-set background=dark				                " Changing background color
+set t_Co=256                                    " Emulate 256 colors
+colorscheme molokai                             " Set theme color scheme
+set background=dark                             " Changing background color
 " }}}
 
 " === General Configuration === {{{
@@ -62,11 +62,12 @@ set paste                                       " Paste text from other window w
 set nowrap                                      " No wrap lines automatically
 set linebreak                                   " Wrap lines at convenient points
 set incsearch                                   " Do highlight as you type you search phrase
-set ignorecase                  		        " Case insensitive searches
+set ignorecase                                  " Case insensitive searches
 set smartcase                                   " Case sensitive searches for capital letters
-set backspace=indent,eol,start  		        " Repair wired terminal/vim settings
-set autoindent					                " Set auto indentation
-set smartindent					                " Set smart indentation
+set backspace=indent,eol,start                  " Repair wired terminal/vim settings
+set autoindent                                  " Set auto indentation
+set smartindent                                 " Set smart indentation
+set smarttab                                    " Set smart tab on indentation
 set copyindent                                  " Copy the previous indentation
 set shiftround                                  " Multiple shiftwidth when indenting with '<' and '>'
 set nostartofline                               " Stop certain movements from always going to the first character of a line
@@ -113,10 +114,6 @@ set wildignore=*.swp,*.bak,*.swo,*.pyc,*.class,*DS_Store*
 set foldmethod=marker   			            " Fold based on indent
 set foldnestmax=10      			            " Deepest fold is 10 levels
 " }}}
-
-" === Remaps === {{{
-cnoremap w!! w !sudo tee % >/dev/null           " Save no permission files once opened
-"}}}
 
 " === PLUGIN: Remap F8 to open Taglist === {{{
 au VimEnter * nnoremap <silent> <F8> :TlistToggle<cr>
