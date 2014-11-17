@@ -21,7 +21,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'skammer/vim-css-color'
-Plugin 'tomasr/molokai'
+Plugin 'lsdr/monokai'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
@@ -44,7 +44,7 @@ filetype plugin indent on
 
 " === Theme and colors === {{{
 set t_Co=256                                    " Emulate 256 colors
-colorscheme molokai                             " Set theme color scheme
+colorscheme monokai                             " Set theme color scheme
 set background=dark                             " Changing background color
 " }}}
 
