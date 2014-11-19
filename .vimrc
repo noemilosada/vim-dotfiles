@@ -58,8 +58,8 @@ let mapleader=','                               " Set the leader key to comma
 highlight Normal guibg=black guifg=white        " Hightlight a text in a diferent color
 set hlsearch                                    " Highlight searches
 set textwidth=0                                 " Linewidth to endless
+noremap <silent> <esc> :noh<cr><esc>            " Remove Hightlight after a search with the esc button
 set paste                                       " Paste text from other window without unexpected effects
-set nowrap                                      " No wrap lines automatically
 set linebreak                                   " Wrap lines at convenient points
 set incsearch                                   " Do highlight as you type you search phrase
 set ignorecase                                  " Case insensitive searches
@@ -87,7 +87,11 @@ set formatoptions=tcrqn                         " How automatic formatting is to
 set whichwrap=b,s,<,>,[,]                       " Allow specific keys that moves the cursor
 set tabstop=4 shiftwidth=4 expandtab            " Set tabs to 4 spaces
 
-" Remove window scrollbars  in gvim and macvim
+" Set indentation for different filetypes
+autocmd FileType mustache set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType scss set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
+" Remove window scrollbars in gvim and macvim
 set guioptions-=T
 set guioptions-=l
 set guioptions-=L
@@ -115,12 +119,21 @@ set foldmethod=marker                           " Fold based on indent
 set foldnestmax=10                              " Deepest fold is 10 levels
 " }}}
 
-" === PLUGIN: Remap F8 to open Taglist === {{{
+" === Remaps === {{{
 au VimEnter * nnoremap <silent> <F8> :TlistToggle<cr>
-au VimEnter * nnoremap <silent> <F7> :NERDTreeToggle<cr>
 map <C-l> <ESC>:bn<CR>
 map <C-h> <ESC>:bp<CR>
-map <F7> :NERDTreeToggle<CR>
+" }}}
+
+" === PLUGIN: NerdTree === {{{
+au VimEnter * nnoremap <silent> <F7> :NERDTreeToggle<cr>
+map <F6> :NERDTreeToggle<CR>
+let NERDChristmasTree=1                         " Colourful and pretty NERDTree
+let NERDTreeMouseMode=3                         " Open directories and files with 1 click
+let NERDTreeShowHidden=1                        " Show hidden files by default
+let NERDTreeWinPos="right"                      " Right position
+autocmd VimEnter * NERDTree                     " Open NerdTree by default
+autocmd VimEnter * wincmd p                     " Cursor in window on open Vim
 " }}}
 
 " === PLUGIN: Syntastic - Syntax checking === {{{
@@ -156,11 +169,6 @@ set laststatus=2
 
 " === PLUGIN: vim-css-color === {{{
 let g:cssColorVimDoNotMessMyUpdatetime = 1
-" }}}
-
-" === PLUGIN: Molokai theme === {{{
-let g:molokai_original = 1                      " Original monokai bkg color
-let g:rehash256 = 1                             " Option under development. Attempts to bring the 256 color version as close as possible
 " }}}
 
 " === PLUGIN: YouCompleteMe === {{{
