@@ -74,6 +74,7 @@ set shiftround                                  " Multiple shiftwidth when inden
 set nostartofline                               " Stop certain movements from always going to the first character of a line
 set ruler                                       " Show line and column information
 set laststatus=2                                " Display status line
+set encoding=utf-8                              " Necessary to show Unicode glyphs
 set ttyfast                                     " Send more characters for redraws
 set ttymouse=xterm2                             " Set this to the name of your terminal that supports mouse codes. Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set mouse=a                                     " Enable mouse use in all modes
@@ -165,10 +166,7 @@ let g:mustache_operators = 1
 " }}}
 
 " === PLUGIN: vim-airline === {{{
-set laststatus=2
 let g:airline_theme='powerlineish'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 
 if !exists('g:airline_symbols')
