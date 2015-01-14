@@ -88,6 +88,7 @@ set showmatch                                   " Show matching brackets
 set formatoptions=tcrqn                         " How automatic formatting is to be done
 set whichwrap=b,s,<,>,[,]                       " Allow specific keys that moves the cursor
 set tabstop=4 shiftwidth=4 expandtab            " Set tabs to 4 spaces
+set invlist                                     " Show hidden chars
 
 " Set indentation for different filetypes
 autocmd FileType mustache set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -101,6 +102,9 @@ set guioptions-=r
 set guioptions-=R
 set guioptions-=m
 set guioptions-=M
+
+" Auto reload on save
+autocmd! bufwritepost .vimrc source %
 " }}}
 
 " === History === {{{
