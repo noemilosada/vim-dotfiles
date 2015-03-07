@@ -38,7 +38,7 @@ filetype plugin indent on
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-" Istall from command line - vim +PluginInstall +qall 
+" Install from command line - vim +PluginInstall +qall
 " see :h vundle for more details or wiki for FAQ
 " }}}
 
@@ -56,6 +56,7 @@ set title                                       " Set automatic title terminal w
 set lazyredraw                                  " Do not redraw while running macros (much faster)
 let mapleader=','                               " Set the leader key to comma
 highlight Normal guibg=black guifg=white        " Hightlight a text in a diferent color
+highlight ExtraWhitespace ctermbg=red guibg=red " Highlight extra white espaces
 set hlsearch                                    " Highlight searches
 set textwidth=0                                 " Linewidth to endless
 noremap <silent> <esc> :noh<cr><esc>            " Remove Hightlight after a search with the esc button
@@ -77,7 +78,7 @@ set ttyfast                                     " Send more characters for redra
 set ttymouse=xterm2                             " Set this to the name of your terminal that supports mouse codes. Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set mouse=a                                     " Enable mouse use in all modes
 set number                                      " Show line numbers by default
-set cursorline                                  " Highlight current line 
+set cursorline                                  " Highlight current line
 set listchars=tab:┊\                            " Indent line
 let g:indentLine_color_gui = '#A4E57E'          " Indent line color
 let g:indentLine_char = '·'                     " Indent line character
@@ -123,10 +124,19 @@ set foldnestmax=10                              " Deepest fold is 10 levels
 au VimEnter * nnoremap <silent> <F8> :TlistToggle<cr>
 map <C-l> <ESC>:bn<CR>
 map <C-h> <ESC>:bp<CR>
+
+" Trailing white spaces
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " }}}
 
 " === PLUGIN: NerdTree === {{{
-au VimEnter * nnoremap <silent> <F7> :NERDTreeToggle<cr>
+au VimEnter * nnoremap <lent> <F7> :NERDTreeToggle<cr>
 map <F6> :NERDTreeToggle<CR>
 let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeMouseMode=3                         " Open directories and files with 1 click
