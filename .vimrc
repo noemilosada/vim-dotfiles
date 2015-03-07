@@ -29,6 +29,7 @@ Plugin 'bling/vim-airline'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -57,7 +58,6 @@ set title                                       " Set automatic title terminal w
 set lazyredraw                                  " Do not redraw while running macros (much faster)
 let mapleader=','                               " Set the leader key to comma
 highlight Normal guibg=black guifg=white        " Hightlight a text in a diferent color
-highlight ExtraWhitespace ctermbg=red guibg=red " Highlight extra white espaces
 set hlsearch                                    " Highlight searches
 set textwidth=0                                 " Linewidth to endless
 noremap <silent> <esc> :noh<cr><esc>            " Remove Hightlight after a search with the esc button
