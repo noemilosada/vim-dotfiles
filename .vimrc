@@ -20,6 +20,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-jdaddy'
+Plugin 'tpope/vim-fugitive'
 Plugin 'skammer/vim-css-color'
 Plugin 'lsdr/monokai'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -74,6 +75,7 @@ set shiftround                                  " Multiple shiftwidth when inden
 set nostartofline                               " Stop certain movements from always going to the first character of a line
 set ruler                                       " Show line and column information
 set laststatus=2                                " Display status line
+set encoding=utf-8                              " Necessary to show Unicode glyphs
 set ttyfast                                     " Send more characters for redraws
 set ttymouse=xterm2                             " Set this to the name of your terminal that supports mouse codes. Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set mouse=a                                     " Enable mouse use in all modes
@@ -87,6 +89,7 @@ set showmatch                                   " Show matching brackets
 set formatoptions=tcrqn                         " How automatic formatting is to be done
 set whichwrap=b,s,<,>,[,]                       " Allow specific keys that moves the cursor
 set tabstop=4 shiftwidth=4 expandtab            " Set tabs to 4 spaces
+set invlist                                     " Show hidden chars
 
 " Set indentation for different filetypes
 autocmd FileType mustache set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -100,6 +103,9 @@ set guioptions-=r
 set guioptions-=R
 set guioptions-=m
 set guioptions-=M
+
+" Auto reload on save
+autocmd! bufwritepost .vimrc source %
 " }}}
 
 " === History === {{{
@@ -174,7 +180,26 @@ let g:mustache_operators = 1
 " }}}
 
 " === PLUGIN: vim-airline === {{{
-set laststatus=2
+let g:airline_theme='powerlineish'
+let g:airline#extensions#syntastic#enabled = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 " }}}
 
 " === PLUGIN: vim-css-color === {{{
