@@ -22,7 +22,7 @@ Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'tpope/vim-fugitive'
 Plugin 'skammer/vim-css-color'
-Plugin 'lsdr/monokai'
+Plugin 'tomasr/molokai'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
@@ -30,6 +30,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'matze/vim-move'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -46,8 +47,10 @@ filetype plugin indent on
 
 " === Theme and colors === {{{
 set t_Co=256                                    " Emulate 256 colors
-colorscheme monokai                             " Set theme color scheme
 set background=dark                             " Changing background color
+colorscheme molokai
+let g:molokai_original = 1
+let g:rehash256 = 1                             " Enable molokai colors in terminal
 " }}}
 
 " === General Configuration === {{{
@@ -60,9 +63,11 @@ let mapleader=','                               " Set the leader key to comma
 highlight Normal guibg=black guifg=white        " Hightlight a text in a diferent color
 set hlsearch                                    " Highlight searches
 set textwidth=0                                 " Linewidth to endless
-noremap <silent> <esc> :noh<cr><esc>            " Remove Hightlight after a search with the esc button
 set paste                                       " Paste text from other window without unexpected effects
 set linebreak                                   " Wrap lines at convenient points
+set nuw=5                                       " Increase column number width
+set ruler                                       " Show line and column information
+set laststatus=2                                " Display status line
 set incsearch                                   " Do highlight as you type you search phrase
 set ignorecase                                  " Case insensitive searches
 set smartcase                                   " Case sensitive searches for capital letters
@@ -73,8 +78,6 @@ set smarttab                                    " Set smart tab on indentation
 set copyindent                                  " Copy the previous indentation
 set shiftround                                  " Multiple shiftwidth when indenting with '<' and '>'
 set nostartofline                               " Stop certain movements from always going to the first character of a line
-set ruler                                       " Show line and column information
-set laststatus=2                                " Display status line
 set encoding=utf-8                              " Necessary to show Unicode glyphs
 set ttyfast                                     " Send more characters for redraws
 set ttymouse=xterm2                             " Set this to the name of your terminal that supports mouse codes. Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
@@ -131,6 +134,11 @@ au VimEnter * nnoremap <silent> <F8> :TlistToggle<cr>
 map <C-l> <ESC>:bn<CR>
 map <C-h> <ESC>:bp<CR>
 
+" Tab navigation
+nnoremap <C-t>     :tabnew<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
 " Trailing white spaces
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -180,6 +188,7 @@ let g:mustache_operators = 1
 " }}}
 
 " === PLUGIN: vim-airline === {{{
+let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 let g:airline#extensions#syntastic#enabled = 1
 
@@ -188,18 +197,13 @@ if !exists('g:airline_symbols')
 endif
 
 " unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 " }}}
 
 " === PLUGIN: vim-css-color === {{{
@@ -208,4 +212,8 @@ let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 " === PLUGIN: YouCompleteMe === {{{
 let g:ycm_always_populate_location_list = 1
+" }}}
+
+" === PLUGIN: Move === {{{
+let g:move_key_modifier = 'C'
 " }}}

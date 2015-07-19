@@ -25,3 +25,6 @@ If you want to use the plugin [YouCompleteMe], you'll need to follow their instr
 
 [Vundle]:http://github.com/gmarik/vundle
 [YouCompleteMe]:http://github.com/Valloric/YouCompleteMe
+
+To display correct symbols with vim airline plugin you'll need to install [Powerline fonts].
+[Powerline fonts]:https://github.com/powerline/fonts
