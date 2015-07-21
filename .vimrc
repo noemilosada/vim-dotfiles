@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-abolish'
@@ -162,6 +163,11 @@ autocmd VimEnter * NERDTree                     " Open NerdTree by default
 autocmd VimEnter * wincmd p                     " Cursor in window on open Vim
 " }}}
 
+" === PLUGIN: NerdTreeTabs === {{{
+let g:nerdtree_tabs_open_on_gui_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 1
+" }}}
+
 " === PLUGIN: Syntastic - Syntax checking === {{{
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': [],
@@ -191,7 +197,7 @@ let g:mustache_operators = 1
 
 " === PLUGIN: vim-airline === {{{
 let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='zenburn'
 let g:airline#extensions#syntastic#enabled = 1
 
 if !exists('g:airline_symbols')
@@ -223,4 +229,5 @@ let g:move_key_modifier = 'C'
 " === PLUGIN: ctrlp === {{{
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
 " }}}
