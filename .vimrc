@@ -1,5 +1,5 @@
-" === Folding structure in vimrc (needs to be the first) === {{{
 " vim:fdm=marker
+" === Folding structure in vimrc (needs to be the first) === {{{
 " }}}
 
 " === Vundle && Plugins === {{{
@@ -17,6 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-jdaddy'
@@ -31,6 +32,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'matze/vim-move'
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -216,4 +218,9 @@ let g:ycm_always_populate_location_list = 1
 
 " === PLUGIN: Move === {{{
 let g:move_key_modifier = 'C'
+" }}}
+
+" === PLUGIN: ctrlp === {{{
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 " }}}
