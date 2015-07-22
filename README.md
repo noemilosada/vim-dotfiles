@@ -20,6 +20,28 @@ Please, feel free to download, modify and suggest.
 
     `$ vim +PluginInstall +qall`
 
+## Used plugins
+* Molokai theme
+* NerdTree
+* NerdTreeTabs
+* NerdCommenter
+* Syntastic
+* Vim abolish
+* Vim surround
+* Vim haml
+* Vim jdaddy
+* Vim fugitive
+* Vim css color
+* Vim mustache handlebars
+* DelimitMate
+* Vim airline
+* IndentLine
+* YouCompleteMe
+* Bufexplorer
+* Vim multiple cursors
+* Vim move
+* ctrlp
+
 ## Notes
 If you want to use the plugin [YouCompleteMe], you'll need to follow their instruccions from their site in order to make it work.
 
