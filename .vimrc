@@ -1,5 +1,5 @@
-" vim:fdm=marker
 " === Folding structure in vimrc (needs to be the first) === {{{
+" vim:fdm=marker
 " }}}
 
 " === Vundle && Plugins === {{{
@@ -39,14 +39,6 @@ Plugin 'kien/ctrlp.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-" Install from command line - vim +PluginInstall +qall
-" see :h vundle for more details or wiki for FAQ
 " }}}
 
 " === Theme and colors === {{{
@@ -84,7 +76,7 @@ set shiftround                                  " Multiple shiftwidth when inden
 set nostartofline                               " Stop certain movements from always going to the first character of a line
 set encoding=utf-8                              " Necessary to show Unicode glyphs
 set ttyfast                                     " Send more characters for redraws
-set ttymouse=xterm2                             " Set this to the name of your terminal that supports mouse codes. Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2                             " Set terminal name that supports mouse codes. Codes can be: xterm, xterm2, netterm, dec, jsbterm, pterm
 set mouse=a                                     " Enable mouse use in all modes
 set number                                      " Show line numbers by default
 set cursorline                                  " Highlight current line
@@ -121,7 +113,7 @@ set history=1000                                " Remember more commands and sea
 set undolevels=1000                             " Use many much levels of undo
 " }}}
 
-" === Completition and swap files === {{{
+" === Completion and swap files === {{{
 set wildmenu
 set noswapfile
 set nobackup
@@ -144,6 +136,15 @@ nnoremap <C-t>     :tabnew<CR>
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
+" Clipboard
+noremap <c-s> <Esc>:Update<CR>
+vnoremap <c-s> <Esc>:Update<CR>
+inoremap <c-s> <Esc>:Update<CR>
+nnoremap <C-c> "+y
+vnoremap <C-c> "+y
+nnoremap <C-v> "+gP
+vnoremap <C-v> "+gP
+
 " Trailing white spaces
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -155,14 +156,13 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " }}}
 
 " === PLUGIN: NerdTree === {{{
-au VimEnter * nnoremap <lent> <F7> :NERDTreeToggle<cr>
-map <F6> :NERDTreeToggle<CR>
+map <F6> :NERDTreeToggle<CR>                    " Use F6 key to toggle NerdTree
+autocmd VimEnter * NERDTree                     " Open NerdTree by default
+autocmd VimEnter * wincmd p                     " Cursor in the opened window
 let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeMouseMode=3                         " Open directories and files with 1 click
 let NERDTreeShowHidden=1                        " Show hidden files by default
 let NERDTreeWinPos="right"                      " Right position
-autocmd VimEnter * NERDTree                     " Open NerdTree by default
-autocmd VimEnter * wincmd p                     " Cursor in window on open Vim
 " }}}
 
 " === PLUGIN: NerdTreeTabs === {{{
