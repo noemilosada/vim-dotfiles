@@ -23,7 +23,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'tpope/vim-fugitive'
-Plugin 'skammer/vim-css-color'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ap/vim-css-color'
 Plugin 'tomasr/molokai'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
@@ -213,10 +214,6 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-" }}}
-
-" === PLUGIN: vim-css-color === {{{
-let g:cssColorVimDoNotMessMyUpdatetime = 1
 " }}}
 
 " === PLUGIN: YouCompleteMe === {{{

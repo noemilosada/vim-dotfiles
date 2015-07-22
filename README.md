@@ -31,6 +31,7 @@ Please, feel free to download, modify and suggest.
 * Vim haml
 * Vim jdaddy
 * Vim fugitive
+* Vim gitgutter
 * Vim css color
 * Vim mustache handlebars
 * DelimitMate
