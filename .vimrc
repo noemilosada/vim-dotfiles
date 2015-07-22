@@ -96,6 +96,7 @@ set formatoptions=tcrqn                         " How automatic formatting is to
 set whichwrap=b,s,<,>,[,]                       " Allow specific keys that moves the cursor
 set tabstop=4 shiftwidth=4 expandtab            " Set tabs to 4 spaces
 set invlist                                     " Show hidden chars
+set clipboard=unnamed                           " Copy to the system clipboard
 
 " Set indentation for different filetypes
 autocmd FileType mustache set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -229,5 +230,6 @@ let g:move_key_modifier = 'C'
 " === PLUGIN: ctrlp === {{{
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'a'             " Only the current directory and subdirectories
 let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
 " }}}
