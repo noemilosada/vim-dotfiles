@@ -42,12 +42,16 @@ Please, feel free to download, modify and suggest.
 * Vim multiple cursors
 * Vim move
 * ctrlp
+* Vim devicons
 
 ## Notes
-If you want to use the plugin [YouCompleteMe], you'll need to follow their instruccions from their site in order to make it work.
+If you want to use the plugin [YouCompleteMe], you'll need to follow the instructions from their site in order to make it work.
+
+To display correct symbols with vim airline plugin you'll need to install [Powerline fonts].
+
+To display file icons you'll need to install [Nerd fonts]. I'm using `Meslo LG S DZ Regular for Powerline Plus Nerd File Types.otf`
 
 [Vundle]:http://github.com/gmarik/vundle
 [YouCompleteMe]:http://github.com/Valloric/YouCompleteMe
-
-To display correct symbols with vim airline plugin you'll need to install [Powerline fonts].
 [Powerline fonts]:https://github.com/powerline/fonts
+[Nerd fonts]:https://github.com/ryanoasis/nerd-fonts

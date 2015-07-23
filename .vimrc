@@ -35,6 +35,7 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'matze/vim-move'
 Plugin 'kien/ctrlp.vim'
+Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -105,7 +106,7 @@ set guioptions-=m
 set guioptions-=M
 
 " Auto reload on save
-autocmd! bufwritepost .vimrc source %
+autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
 " }}}
 
 " === History === {{{
@@ -132,7 +133,7 @@ map <C-l> <ESC>:bn<CR>
 map <C-h> <ESC>:bp<CR>
 
 " Tab navigation
-nnoremap <C-t>     :tabnew<CR>
+nnoremap <C-t> :tabnew<CR>
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
@@ -201,6 +202,7 @@ let g:mustache_operators = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='zenburn'
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
