@@ -29,7 +29,7 @@ Please, feel free to download, modify and suggest.
 * Vim abolish
 * Vim surround
 * Vim haml
-* Vim jdaddy
+* Vim json
 * Vim fugitive
 * Vim gitgutter
 * Vim css color
@@ -43,6 +43,7 @@ Please, feel free to download, modify and suggest.
 * Vim move
 * ctrlp
 * Vim devicons
+* Vim javascript libraries syntax
 
 ## Notes
 If you want to use the plugin [YouCompleteMe], you'll need to follow the instructions from their site in order to make it work.
