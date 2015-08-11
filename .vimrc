@@ -21,7 +21,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-jdaddy'
+Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
@@ -36,6 +36,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'matze/vim-move'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -229,4 +230,12 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'a'             " Only the current directory and subdirectories
 let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
+" }}}
+
+" === PLUGIN: Javascript libraries syntax === {{{
+let g:used_javascript_libs = 'underscore,jquery,angularjs,requirejs,jasmine,handlebars'
+" }}}
+
+" === PLUGIN: JSON === {{{
+let g:indentLine_noConcealCursor=1
 " }}}
