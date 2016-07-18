@@ -28,13 +28,14 @@ Plugin 'ap/vim-css-color'
 Plugin 'tomasr/molokai'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'matze/vim-move'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
@@ -162,6 +163,8 @@ let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeMouseMode=3                         " Open directories and files with 1 click
 let NERDTreeShowHidden=1                        " Show hidden files by default
 let NERDTreeWinPos="right"                      " Right position
+
+hi NERDTreeDir guifg=#465457 ctermfg=38         " Change default Directory colour
 " }}}
 
 " === PLUGIN: NerdTreeTabs === {{{
