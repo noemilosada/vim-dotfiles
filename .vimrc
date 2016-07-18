@@ -236,7 +236,7 @@ let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
 " }}}
 
 " === PLUGIN: Javascript libraries syntax === {{{
-let g:used_javascript_libs = 'underscore,jquery,angularjs,requirejs,jasmine,handlebars'
+let g:used_javascript_libs = 'underscore,jquery,requirejs,jasmine,handlebars,react,flux,jasmine,chai'
 " }}}
 
 " === PLUGIN: JSON === {{{
