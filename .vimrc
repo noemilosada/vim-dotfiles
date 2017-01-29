@@ -159,19 +159,17 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " === PLUGIN: NerdTree === {{{
 map <F6> :NERDTreeToggle<CR>                    " Use F6 key to toggle NerdTree
-autocmd VimEnter * NERDTree                     " Open NerdTree by default
 autocmd VimEnter * wincmd p                     " Cursor in the opened window
 let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeMouseMode=3                         " Open directories and files with 1 click
 let NERDTreeShowHidden=1                        " Show hidden files by default
-let NERDTreeWinPos="right"                      " Right position
+let NERDTreeWinPos="left"                       " Left position
 
 hi NERDTreeDir guifg=#465457 ctermfg=38         " Change default Directory colour
 " }}}
 
 " === PLUGIN: NerdTreeTabs === {{{
 let g:nerdtree_tabs_open_on_gui_startup = 1
-let g:nerdtree_tabs_open_on_console_startup = 1
 " }}}
 
 " === PLUGIN: Syntastic - Syntax checking === {{{
@@ -234,6 +232,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'a'             " Only the current directory and subdirectories
 let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
+let g:ctrlp_show_hidden = 1                     " Search hidden files
 " }}}
 
 " === PLUGIN: Javascript libraries syntax === {{{
