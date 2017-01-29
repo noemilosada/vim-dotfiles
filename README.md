@@ -21,29 +21,30 @@ Please, feel free to download, modify and suggest.
     `$ vim +PluginInstall +qall`
 
 ## Used plugins
+* Ack
+* Bufexplorer
+* CtrlP
+* DelimitMate
+* IndentLine
 * Molokai theme
+* NerdCommenter
 * NerdTree
 * NerdTreeTabs
-* NerdCommenter
 * Syntastic
 * Vim abolish
-* Vim surround
-* Vim haml
-* Vim json
+* Vim airline
+* Vim css color
+* Vim devicons
 * Vim fugitive
 * Vim gitgutter
-* Vim css color
-* Vim mustache handlebars
-* DelimitMate
-* Vim airline
-* IndentLine
-* YouCompleteMe
-* Bufexplorer
-* Vim multiple cursors
-* Vim move
-* ctrlp
-* Vim devicons
+* Vim haml
 * Vim javascript libraries syntax
+* Vim json
+* Vim move
+* Vim multiple cursors
+* Vim mustache handlebars
+* Vim surround
+* YouCompleteMe
 
 ## Notes
 If you want to use the plugin [YouCompleteMe], you'll need to follow the instructions from their site in order to make it work.
@@ -52,7 +53,10 @@ To display correct symbols with vim airline plugin you'll need to install [Power
 
 To display file icons you'll need to install [Nerd fonts]. I'm using `Meslo LG S DZ Regular for Powerline Plus Nerd File Types.otf`
 
+To use [Ack] you'll need to install it in your system.
+
 [Vundle]:http://github.com/gmarik/vundle
 [YouCompleteMe]:http://github.com/Valloric/YouCompleteMe
 [Powerline fonts]:https://github.com/powerline/fonts
 [Nerd fonts]:https://github.com/ryanoasis/nerd-fonts
+[Ack]:http://beyondgrep.com/install/

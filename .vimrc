@@ -14,30 +14,31 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-haml'
-Plugin 'elzr/vim-json'
-Plugin 'tpope/vim-fugitive'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Yggdroot/indentLine'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
-Plugin 'tomasr/molokai'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'elzr/vim-json'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'matze/vim-move'
+Plugin 'mileszs/ack.vim'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'Raimondi/delimitMate'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Yggdroot/indentLine'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'matze/vim-move'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'othree/javascript-libraries-syntax.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -240,5 +241,6 @@ let g:used_javascript_libs = 'underscore,jquery,requirejs,jasmine,handlebars,rea
 " }}}
 
 " === PLUGIN: JSON === {{{
-let g:indentLine_noConcealCursor=1
+let g:indentLine_noConcealCursor = 1
+let g:vim_json_syntax_conceal = 0
 " }}}
