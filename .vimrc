@@ -176,9 +176,14 @@ let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeMouseMode=3                         " Open directories and files with 1 click
 let NERDTreeShowHidden=1                        " Show hidden files by default
 let NERDTreeWinPos="left"                       " Left position
+let g:NERDTreeDirArrowExpandable = '❤'
+let g:NERDTreeDirArrowCollapsible = '❥'
 
 hi NERDTreeDir guifg=#465457 ctermfg=38         " Change default Directory colour
-"let NERDTreeMapOpenInTab='<ENTER>'
+
+hi NERDTreeOpenable cterm=NONE ctermbg=NONE ctermfg=Red guifg=#ec3903 guibg=NONE
+hi NERDTreeClosable cterm=NONE ctermbg=NONE ctermfg=Red guifg=#ec3903 guibg=NONE
+
 " }}}
 
 " === PLUGIN: NerdTreeTabs === {{{
