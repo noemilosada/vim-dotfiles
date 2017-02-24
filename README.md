@@ -31,15 +31,19 @@ Please, feel free to download, modify and suggest.
 * NerdTree
 * NerdTreeTabs
 * Syntastic
+* Tern for vim
 * Vim abolish
 * Vim airline
 * Vim css color
+* Vim cucumber
 * Vim devicons
 * Vim fugitive
 * Vim gitgutter
 * Vim haml
+* Vim javascript
 * Vim javascript libraries syntax
 * Vim json
+* Vim jsx
 * Vim move
 * Vim multiple cursors
 * Vim mustache handlebars

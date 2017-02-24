@@ -15,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 Plugin 'Raimondi/delimitMate'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe' " Do `./install.py --tern-completer` after installation
 Plugin 'Yggdroot/indentLine'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
@@ -23,10 +23,13 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'marijnh/tern_for_vim'
 Plugin 'matze/vim-move'
 Plugin 'mileszs/ack.vim'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'mxw/vim-jsx'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -34,6 +37,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-surround'
@@ -94,6 +98,7 @@ set whichwrap=b,s,<,>,[,]                       " Allow specific keys that moves
 set tabstop=4 shiftwidth=4 expandtab            " Set tabs to 4 spaces
 set invlist                                     " Show hidden chars
 set clipboard=unnamed                           " Copy to the system clipboard
+" set relativenumber
 
 " Set indentation for different filetypes
 autocmd FileType mustache set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -110,6 +115,12 @@ set guioptions-=M
 
 " Auto reload on save
 autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
+
+" Markdown
+" au BufNewFile,BufRead *.md setf markdown
+
+" Open each buffer in its own tabpage
+" au BufAdd,BufNewFile * nested tab sball
 " }}}
 
 " === History === {{{
@@ -159,6 +170,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " === PLUGIN: NerdTree === {{{
 map <F6> :NERDTreeToggle<CR>                    " Use F6 key to toggle NerdTree
+"autocmd VimEnter * NERDTree                     " Open NerdTree by default
 autocmd VimEnter * wincmd p                     " Cursor in the opened window
 let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeMouseMode=3                         " Open directories and files with 1 click
@@ -166,10 +178,12 @@ let NERDTreeShowHidden=1                        " Show hidden files by default
 let NERDTreeWinPos="left"                       " Left position
 
 hi NERDTreeDir guifg=#465457 ctermfg=38         " Change default Directory colour
+"let NERDTreeMapOpenInTab='<ENTER>'
 " }}}
 
 " === PLUGIN: NerdTreeTabs === {{{
 let g:nerdtree_tabs_open_on_gui_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 1
 " }}}
 
 " === PLUGIN: Syntastic - Syntax checking === {{{
@@ -220,18 +234,18 @@ let g:airline_symbols.linenr = ''
 " }}}
 
 " === PLUGIN: YouCompleteMe === {{{
-let g:ycm_always_populate_location_list = 1
+let g:ycm_always_populate_location_list = 1 " 0
 " }}}
 
-" === PLUGIN: Move === {{{
+" === P LUGIN: Move === {{{
 let g:move_key_modifier = 'C'
 " }}}
 
-" === PLUGIN: ctrlp === {{{
+" === PLUGIN:  ctrlp === {{{
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'a'             " Only the current directory and subdirectories
-let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower)'
+let g:ctrlp_working_path_mode = 'a'             " Only the current directory and subdirectories // ra?
+let g:ctrlp_custom_ignore = '\v[\/](.git|node_modules|bower|build)'
 let g:ctrlp_show_hidden = 1                     " Search hidden files
 " }}}
 
@@ -242,4 +256,8 @@ let g:used_javascript_libs = 'underscore,jquery,requirejs,jasmine,handlebars,rea
 " === PLUGIN: JSON === {{{
 let g:indentLine_noConcealCursor = 1
 let g:vim_json_syntax_conceal = 0
+" }}}
+
+" === PLUGIN: REACT === {{{
+let g:jsx_ext_required = 0
 " }}}
