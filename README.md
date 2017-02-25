@@ -35,7 +35,6 @@ Please, feel free to download, modify and suggest.
 * Vim abolish
 * Vim airline
 * Vim css color
-* Vim cucumber
 * Vim devicons
 * Vim fugitive
 * Vim gitgutter

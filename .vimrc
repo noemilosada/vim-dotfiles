@@ -37,7 +37,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-surround'
@@ -170,39 +169,37 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " === PLUGIN: NerdTree === {{{
 map <F6> :NERDTreeToggle<CR>                    " Use F6 key to toggle NerdTree
-"autocmd VimEnter * NERDTree                     " Open NerdTree by default
+autocmd VimEnter * NERDTree                     " Open NerdTree by default
 autocmd VimEnter * wincmd p                     " Cursor in the opened window
 let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeMouseMode=3                         " Open directories and files with 1 click
 let NERDTreeShowHidden=1                        " Show hidden files by default
 let NERDTreeWinPos="left"                       " Left position
-let g:NERDTreeDirArrowExpandable = '❤'
-let g:NERDTreeDirArrowCollapsible = '❥'
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
 
 hi NERDTreeDir guifg=#465457 ctermfg=38         " Change default Directory colour
-
-hi NERDTreeOpenable cterm=NONE ctermbg=NONE ctermfg=Red guifg=#ec3903 guibg=NONE
-hi NERDTreeClosable cterm=NONE ctermbg=NONE ctermfg=Red guifg=#ec3903 guibg=NONE
-
+hi NERDTreeOpenable cterm=NONE ctermbg=NONE ctermfg=197 guifg=#EC0151 guibg=NONE
+hi NERDTreeClosable cterm=NONE ctermbg=NONE ctermfg=197 guifg=#EC0151 guibg=NONE
 " }}}
 
 " === PLUGIN: NerdTreeTabs === {{{
-let g:nerdtree_tabs_open_on_gui_startup = 1
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_gui_startup = 2
+let g:nerdtree_tabs_open_on_console_startup = 2
 " }}}
 
 " === PLUGIN: Syntastic - Syntax checking === {{{
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': [],
-            \ 'passive_filetypes': ['html'] }
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phplint', 'phpmd']
-let g:syntastic_css_checkers = ['csslint', 'phpcs', 'prettycss', 'recess']
+let g:syntastic_mode_map = {
+    \ 'mode': 'active',
+    \ 'passive_filetypes': ['html', 'feature'] }
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_php_checkers = ['php', 'phplint']
+let g:syntastic_css_checkers = ['csslint', 'prettycss']
 let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_scss_checkers = ['sass', 'sassc', 'scss_lint']
+let g:syntastic_scss_checkers = ['sass', 'sassc']
 let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_quiet_messages = { "type": "style" }
 
+let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_echo_current_error=1
