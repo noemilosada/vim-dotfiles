@@ -22,6 +22,7 @@ Please, feel free to download, modify and suggest.
 
 ## Used plugins
 * Ack
+* Ale
 * Bufexplorer
 * CtrlP
 * DelimitMate
@@ -30,14 +31,14 @@ Please, feel free to download, modify and suggest.
 * NerdCommenter
 * NerdTree
 * NerdTreeTabs
-* Syntastic
-* Tern for vim
+* Vim NerdTree syntax highlight
 * Vim abolish
 * Vim airline
 * Vim css color
 * Vim devicons
 * Vim fugitive
 * Vim gitgutter
+* Vim gotofile
 * Vim haml
 * Vim javascript
 * Vim javascript libraries syntax
@@ -45,12 +46,11 @@ Please, feel free to download, modify and suggest.
 * Vim jsx
 * Vim move
 * Vim multiple cursors
-* Vim mustache handlebars
 * Vim surround
 * YouCompleteMe
 
 ## Notes
-If you want to use the plugin [YouCompleteMe], you'll need to follow the instructions from their site in order to make it work.
+To use the plugin [YouCompleteMe], you'll need to follow the instructions from their site in order to make it work.
 
 To display correct symbols with vim airline plugin you'll need to install [Powerline fonts].
 

@@ -1,5 +1,6 @@
-" === Folding structure in vimrc (needs to be the first) === {{{
-" vim:fdm=marker
+" === Folding Structure ==== {{{
+set foldmethod=marker                           " Fold based on indent
+set foldnestmax=10                              " Deepest fold is 10 levels
 " }}}
 
 " === Vundle && Plugins === {{{
@@ -11,7 +12,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 Plugin 'Raimondi/delimitMate'
@@ -23,18 +24,17 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'marijnh/tern_for_vim'
 Plugin 'matze/vim-move'
 Plugin 'mileszs/ack.vim'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
@@ -42,6 +42,7 @@ Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'zoubin/vim-gotofile'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -66,7 +67,7 @@ let mapleader=','                               " Set the leader key to comma
 highlight Normal guibg=black guifg=white        " Hightlight a text in a diferent color
 set hlsearch                                    " Highlight searches
 set textwidth=0                                 " Linewidth to endless
-set paste                                       " Paste text from other window without unexpected effects
+"set paste                                      " Paste text from other window without unexpected effects (disable in order to delimitMate plugin to work)
 set linebreak                                   " Wrap lines at convenient points
 set nuw=5                                       " Increase column number width
 set ruler                                       " Show line and column information
@@ -83,25 +84,18 @@ set shiftround                                  " Multiple shiftwidth when inden
 set nostartofline                               " Stop certain movements from always going to the first character of a line
 set encoding=utf-8                              " Necessary to show Unicode glyphs
 set ttyfast                                     " Send more characters for redraws
-set ttymouse=sgr                                " Set terminal name that supports mouse codes. Codes can be: sgr, xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=sgr                                " Set terminal name that supports mouse codes(sgr, xterm, xterm2, netterm, dec, jsbterm, pterm).
 set mouse=a                                     " Enable mouse use in all modes
 set number                                      " Show line numbers by default
 set cursorline                                  " Highlight current line
 set listchars=tab:┊\                            " Indent line
-let g:indentLine_color_gui = '#A4E57E'          " Indent line color
-let g:indentLine_char = '·'                     " Indent line character
 set showmode                                    " Always show command or insert mode
 set showmatch                                   " Show matching brackets
 set formatoptions=tcrqn                         " How automatic formatting is to be done
 set whichwrap=b,s,<,>,[,]                       " Allow specific keys that moves the cursor
-set tabstop=4 shiftwidth=4 expandtab            " Set tabs to 4 spaces
+set tabstop=2 shiftwidth=2 expandtab            " Set tabs to 4 spaces
 set invlist                                     " Show hidden chars
 set clipboard=unnamed                           " Copy to the system clipboard
-" set relativenumber
-
-" Set indentation for different filetypes
-autocmd FileType mustache set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType scss set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Remove window scrollbars in gvim and macvim
 set guioptions-=T
@@ -114,12 +108,6 @@ set guioptions-=M
 
 " Auto reload on save
 autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
-
-" Markdown
-" au BufNewFile,BufRead *.md setf markdown
-
-" Open each buffer in its own tabpage
-" au BufAdd,BufNewFile * nested tab sball
 " }}}
 
 " === History === {{{
@@ -133,11 +121,6 @@ set noswapfile
 set nobackup
 set nowb
 set wildignore=*.swp,*.bak,*.swo,*.pyc,*.class,*DS_Store*
-" }}}
-
-" === Folding Structure ==== {{{
-set foldmethod=marker                           " Fold based on indent
-set foldnestmax=10                              " Deepest fold is 10 levels
 " }}}
 
 " === Remaps === {{{
@@ -169,16 +152,18 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " === PLUGIN: NerdTree === {{{
 map <F6> :NERDTreeToggle<CR>                    " Use F6 key to toggle NerdTree
-autocmd VimEnter * NERDTree                     " Open NerdTree by default
 autocmd VimEnter * wincmd p                     " Cursor in the opened window
-let NERDChristmasTree=1                         " Colourful and pretty NERDTree
 let NERDTreeMouseMode=3                         " Open directories and files with 1 click
-let NERDTreeShowHidden=1                        " Show hidden files by default
-let NERDTreeWinPos="left"                       " Left position
+let NERDTreeWinPos="right"                      " Right position
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
 
-hi NERDTreeDir guifg=#465457 ctermfg=38         " Change default Directory colour
+" Open NERDTree automatically when vim starts up on opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Change default directory and arrow colours
+hi NERDTreeDir guifg=#465457 ctermfg=38
 hi NERDTreeOpenable cterm=NONE ctermbg=NONE ctermfg=197 guifg=#EC0151 guibg=NONE
 hi NERDTreeClosable cterm=NONE ctermbg=NONE ctermfg=197 guifg=#EC0151 guibg=NONE
 " }}}
@@ -188,37 +173,15 @@ let g:nerdtree_tabs_open_on_gui_startup = 2
 let g:nerdtree_tabs_open_on_console_startup = 2
 " }}}
 
-" === PLUGIN: Syntastic - Syntax checking === {{{
-let g:syntastic_mode_map = {
-    \ 'mode': 'active',
-    \ 'passive_filetypes': ['html', 'feature'] }
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_php_checkers = ['php', 'phplint']
-let g:syntastic_css_checkers = ['csslint', 'prettycss']
-let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_scss_checkers = ['sass', 'sassc']
-let g:syntastic_python_checkers = ['pylint']
-
-let g:syntastic_quiet_messages = { "type": "style" }
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_echo_current_error=1
-let g:syntastic_enable_signs=1
-let g:syntastic_enable_balloons = 1
-let g:syntastic_auto_jump=1
-let g:syntastic_check_on_open=1
-let g:syntastic_auto_loc_list=1
-" }}}
-
-" === PLUGIN: Mustache === {{{
-let g:mustache_abbreviations = 0
-let g:mustache_operators = 1
+" === PLUGIN: Ale - Syntax checking === {{{
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '!'
 " }}}
 
 " === PLUGIN: vim-airline === {{{
 let g:airline_powerline_fonts = 1
-let g:airline_theme='zenburn'
-let g:airline#extensions#syntastic#enabled = 1
+let g:airline_theme='behelit'
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
@@ -235,12 +198,13 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 " }}}
 
-" === PLUGIN: YouCompleteMe === {{{
-let g:ycm_always_populate_location_list = 1 " 0
+" === PLUGIN: Move === {{{
+let g:move_key_modifier = 'C'
 " }}}
 
-" === P LUGIN: Move === {{{
-let g:move_key_modifier = 'C'
+" === PLUGIN: Indentlines === {{{
+let g:indentLine_color_gui = '#A4E57E'          " Indent line color
+let g:indentLine_char = '·'                     " Indent line character
 " }}}
 
 " === PLUGIN:  ctrlp === {{{
